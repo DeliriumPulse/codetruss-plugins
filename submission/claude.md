@@ -10,8 +10,9 @@
 
 Description:
 
-> Keep Claude Code changes inside the approved task, run deterministic local
-> analyzers and repository verification, and produce a verifiable receipt. The
+> Catch scope drift and AI slop before commit. Keep Claude Code changes inside
+> the approved task, run deterministic local analyzers and repository
+> verification, and produce a verifiable receipt. The
 > skill installs CodeTruss's existing project hook only after the developer
 > confirms repository scope. It never uploads code; provider review and receipt
 > sync remain explicit opt-ins.

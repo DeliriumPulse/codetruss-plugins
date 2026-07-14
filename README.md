@@ -26,8 +26,8 @@ claude plugin marketplace add DeliriumPulse/codetruss-plugins
 claude plugin install codetruss@codetruss
 ```
 
-The same plugin will be submitted to Anthropic's reviewed `claude-community`
-marketplace after the public CLI release is live.
+The same validated plugin is ready for Anthropic's reviewed marketplace. The
+owned marketplace is live now; official listing remains pending review.
 
 ## Codex
 
@@ -36,8 +36,9 @@ codex plugin marketplace add DeliriumPulse/codetruss-plugins
 codex plugin add codetruss@codetruss
 ```
 
-The skills-only plugin will also be submitted to OpenAI's universal Plugin
-Directory after clean-profile installation tests pass.
+The validated skills-only bundle is ready for OpenAI's universal Plugin
+Directory. The owned marketplace is live now; official listing remains pending
+verified publisher submission and review.
 
 ## What the skill does
 

@@ -1,7 +1,7 @@
 {
   "name": "codetruss",
-  "version": "0.1.0",
-  "description": "Local acceptance gates and verifiable receipts for AI-generated changes.",
+  "version": "0.1.1",
+  "description": "Catch scope drift and AI slop before commit with local acceptance receipts.",
   "author": {
     "name": "CodeTruss",
     "email": "zack@codetruss.com",
@@ -14,8 +14,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "CodeTruss",
-    "shortDescription": "Prove agent changes stayed inside the task",
-    "longDescription": "Set a task boundary, run deterministic local checks, and produce a verifiable receipt for AI-generated changes.",
+    "shortDescription": "Catch scope drift and AI slop before commit",
+    "longDescription": "Bind agent changes to the task, run deterministic local checks, and produce a verifiable receipt before commit.",
     "developerName": "CodeTruss",
     "category": "Developer Tools",
     "capabilities": ["Interactive", "Read", "Write"],

@@ -6,7 +6,7 @@ Submission type: **Skills only**
 
 - Name: CodeTruss
 - Category: Developer Tools
-- Short description: Prove agent changes stayed inside the task.
+- Short description: Catch scope drift and AI slop before commit.
 - Website: <https://codetruss.com>
 - Support: <https://github.com/DeliriumPulse/codetruss-cli/issues>
 - Privacy: <https://codetruss.com/privacy>
@@ -14,8 +14,9 @@ Submission type: **Skills only**
 
 Long description:
 
-> Set a task boundary, run deterministic local scope and quality checks, execute
-> your repository's own verification commands, and produce a verifiable receipt
+> Bind agent changes to the task. Catch scope drift and AI slop with
+> deterministic local checks, run your repository's own verification commands,
+> and produce a verifiable receipt
 > for AI-generated changes. CodeTruss works across coding agents. Deterministic
 > analysis stays on your machine; provider review and receipt sync are explicit
 > opt-ins.

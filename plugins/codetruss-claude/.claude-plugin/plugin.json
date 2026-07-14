@@ -1,7 +1,7 @@
 {
   "name": "codetruss",
-  "version": "0.1.0",
-  "description": "Local acceptance gates and verifiable receipts for AI-generated changes.",
+  "version": "0.1.1",
+  "description": "Catch scope drift and AI slop before commit with local acceptance receipts.",
   "author": {
     "name": "CodeTruss",
     "email": "zack@codetruss.com",
