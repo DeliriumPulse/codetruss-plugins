@@ -21,5 +21,5 @@ Pre-submission evidence:
 - `claude plugin validate ./plugins/codetruss-claude`
 - clean-profile marketplace add and install
 - PASS, REVIEW_REQUIRED, and FAILED fixture runs
-- public CodeTruss CLI v0.2.13 installer and attested GitHub release availability
+- public CodeTruss CLI v0.2.14 installer and attested GitHub release availability
 - MIT wrapper license and explicit proprietary CLI boundary
