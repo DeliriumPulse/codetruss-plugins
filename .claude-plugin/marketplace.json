@@ -1,11 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "codetruss",
-  "description": "Catch scope drift and AI slop before commit with local acceptance receipts",
-  "metadata": {
-    "description": "Catch scope drift and AI slop before commit with local acceptance receipts",
-    "version": "0.1.1"
-  },
+  "description": "Verify the acceptance contract for coding-agent changes locally",
+  "version": "0.1.2",
   "owner": {
     "name": "CodeTruss",
     "email": "zack@codetruss.com"
@@ -14,10 +11,9 @@
     {
       "name": "codetruss",
       "source": "./plugins/codetruss-claude",
-      "description": "Bind agent changes to the task and produce a verifiable local receipt before commit",
-      "version": "0.1.1",
+      "description": "Enforce approved scope and checks with the separately installed free CodeTruss CLI",
       "category": "development",
-      "tags": ["scope-drift", "verification", "local-first", "coding-agents"]
+      "tags": ["acceptance-gate", "scope-drift", "verification", "local-first", "coding-agents"]
     }
   ]
 }

@@ -26,8 +26,10 @@ claude plugin marketplace add DeliriumPulse/codetruss-plugins
 claude plugin install codetruss@codetruss
 ```
 
-The same validated plugin is ready for Anthropic's reviewed marketplace. The
-owned marketplace is live now; official listing remains pending review.
+The owned marketplace is live now. The same validated plugin is prepared for
+Anthropic's reviewed community marketplace but has not been submitted. The
+automatically available official marketplace is separately curated at
+Anthropic's discretion.
 
 ## Codex
 
@@ -36,9 +38,9 @@ codex plugin marketplace add DeliriumPulse/codetruss-plugins
 codex plugin add codetruss@codetruss
 ```
 
-The validated skills-only bundle is ready for OpenAI's universal Plugin
-Directory. The owned marketplace is live now; official listing remains pending
-verified publisher submission and review.
+The validated skills-only bundle is ready for OpenAI's Plugin Directory. The
+owned marketplace is live now; public-directory submission has not occurred and
+still requires a verified publisher with Apps Management write access.
 
 ## What the skill does
 
@@ -60,10 +62,21 @@ self-contained.
 npm test
 claude plugin validate ./plugins/codetruss-claude
 python3 /path/to/plugin-creator/scripts/validate_plugin.py ./plugins/codetruss
+npm run release:verify
 ```
 
 `npm test` uses only Node.js built-ins and verifies manifests, marketplace
 entries, skill parity, privacy guardrails, and submission-case counts.
+`npm run release:verify` builds the OpenAI and Claude submission archives twice
+from the committed Git tree and proves their bytes are reproducible.
+
+## Security and support
+
+Read [SECURITY.md](SECURITY.md) before reporting a vulnerability. General
+wrapper issues belong in this repository; CLI issues belong in the
+[CodeTruss CLI tracker](https://github.com/DeliriumPulse/codetruss-cli/issues).
+Never attach third-party source, credentials, or unredacted receipts to a public
+issue.
 
 ## Licensing boundary
 
