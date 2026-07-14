@@ -1,6 +1,6 @@
 ---
 name: codetruss
-description: Catch scope drift and AI slop by setting up and operating CodeTruss local acceptance gates for AI-generated code. Use when a developer asks to bind an agent task to allowed or denied files, configure repository verification, install or diagnose Claude Code or Codex hooks, review a working-tree or staged diff before commit, interpret or verify a signed CodeTruss receipt, repair a failed verdict, or explicitly opt into provider-backed review or receipt sync.
+description: Operate CodeTruss local acceptance gates for coding-agent changes. Use when a developer asks to bind an agent task to allowed or denied files, configure repository verification, install or diagnose Claude Code or Codex hooks, review a working-tree or staged diff before commit, interpret or verify a signed CodeTruss receipt, repair a failed verdict, or explicitly opt into provider-backed review or receipt sync.
 ---
 
 # CodeTruss

@@ -1,7 +1,7 @@
 {
   "name": "codetruss",
-  "version": "0.1.1",
-  "description": "Catch scope drift and AI slop before commit with local acceptance receipts.",
+  "version": "0.1.2",
+  "description": "Verify coding-agent changes locally with the separately installed free CodeTruss CLI.",
   "author": {
     "name": "CodeTruss",
     "email": "zack@codetruss.com",
@@ -10,6 +10,6 @@
   "homepage": "https://codetruss.com/cli",
   "repository": "https://github.com/DeliriumPulse/codetruss-plugins",
   "license": "MIT",
-  "keywords": ["coding-agents", "scope-drift", "local-first", "verification", "receipts"],
+  "keywords": ["acceptance-gate", "coding-agents", "scope-drift", "local-first", "verification", "receipts"],
   "skills": "./skills/"
 }

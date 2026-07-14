@@ -1,4 +1,4 @@
 interface:
   display_name: "CodeTruss"
-  short_description: "Catch scope drift and AI slop before commit"
+  short_description: "Local acceptance gate for coding-agent changes"
   default_prompt: "Use $codetruss to review my current agent changes and explain the receipt."

@@ -1,7 +1,7 @@
 {
   "name": "codetruss",
-  "version": "0.1.1",
-  "description": "Catch scope drift and AI slop before commit with local acceptance receipts.",
+  "version": "0.1.2",
+  "description": "Verify the acceptance contract for coding-agent changes locally.",
   "author": {
     "name": "CodeTruss",
     "email": "zack@codetruss.com",
@@ -10,12 +10,12 @@
   "homepage": "https://codetruss.com/cli",
   "repository": "https://github.com/DeliriumPulse/codetruss-plugins",
   "license": "MIT",
-  "keywords": ["coding-agents", "scope-drift", "local-first", "verification", "receipts"],
+  "keywords": ["acceptance-gate", "coding-agents", "scope-drift", "local-first", "verification", "receipts"],
   "skills": "./skills/",
   "interface": {
     "displayName": "CodeTruss",
-    "shortDescription": "Catch scope drift and AI slop before commit",
-    "longDescription": "Bind agent changes to the task, run deterministic local checks, and produce a verifiable receipt before commit.",
+    "shortDescription": "Local acceptance gate for coding-agent changes",
+    "longDescription": "Declare approved scope and repository checks, evaluate the captured Git state locally, and produce a verifiable receipt before commit. Requires the separately installed free CodeTruss CLI; no CodeTruss account or upload is required.",
     "developerName": "CodeTruss",
     "category": "Developer Tools",
     "capabilities": ["Interactive", "Read", "Write"],
@@ -27,6 +27,9 @@
       "Review my current changes against the task",
       "Verify and explain my latest CodeTruss receipt"
     ],
-    "brandColor": "#B93A26"
+    "brandColor": "#B93A26",
+    "composerIcon": "./assets/codetruss-mark-512.png",
+    "logo": "./assets/codetruss-mark-512.png",
+    "logoDark": "./assets/codetruss-mark-512.png"
   }
 }
