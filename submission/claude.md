@@ -4,6 +4,8 @@
 - Repository: <https://github.com/DeliriumPulse/codetruss-plugins>
 - Package path: `plugins/codetruss-claude`
 - Homepage: <https://codetruss.com/cli>
+- Logo: <https://codetruss.com/brand/codetruss-mark-512.png> (512 × 512;
+  SHA-256 `2c46b3aca474ec80918333b6331326ef6f1df6d4a09d48c4f4f9f128dc3d45b8`)
 - Support: <https://github.com/DeliriumPulse/codetruss-cli/issues>
 - Privacy: <https://codetruss.com/privacy>
 - Terms: <https://codetruss.com/terms>

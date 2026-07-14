@@ -7,6 +7,8 @@ Submission type: **Skills only**
 - Name: CodeTruss
 - Category: Developer Tools
 - Short description: Catch scope drift and AI slop before commit.
+- Logo: <https://codetruss.com/brand/codetruss-mark-512.png> (512 × 512;
+  SHA-256 `2c46b3aca474ec80918333b6331326ef6f1df6d4a09d48c4f4f9f128dc3d45b8`)
 - Website: <https://codetruss.com>
 - Support: <https://github.com/DeliriumPulse/codetruss-cli/issues>
 - Privacy: <https://codetruss.com/privacy>
