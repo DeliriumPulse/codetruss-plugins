@@ -1,0 +1,15 @@
+{
+  "name": "codetruss",
+  "version": "0.1.0",
+  "description": "Local acceptance gates and verifiable receipts for AI-generated changes.",
+  "author": {
+    "name": "CodeTruss",
+    "email": "zack@codetruss.com",
+    "url": "https://codetruss.com"
+  },
+  "homepage": "https://codetruss.com/cli",
+  "repository": "https://github.com/DeliriumPulse/codetruss-plugins",
+  "license": "MIT",
+  "keywords": ["coding-agents", "scope-drift", "local-first", "verification", "receipts"],
+  "skills": "./skills/"
+}

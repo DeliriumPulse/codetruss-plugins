@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "codetruss",
+  "description": "Local acceptance gates and verifiable receipts for AI-generated changes",
+  "metadata": {
+    "description": "Local acceptance gates and verifiable receipts for AI-generated changes",
+    "version": "0.1.0"
+  },
+  "owner": {
+    "name": "CodeTruss",
+    "email": "zack@codetruss.com"
+  },
+  "plugins": [
+    {
+      "name": "codetruss",
+      "source": "./plugins/codetruss-claude",
+      "description": "Keep agent changes inside the task and produce a verifiable local receipt",
+      "version": "0.1.0",
+      "category": "development",
+      "tags": ["scope-drift", "verification", "local-first", "coding-agents"]
+    }
+  ]
+}

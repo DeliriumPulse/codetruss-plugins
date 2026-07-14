@@ -1,0 +1,32 @@
+{
+  "name": "codetruss",
+  "version": "0.1.0",
+  "description": "Local acceptance gates and verifiable receipts for AI-generated changes.",
+  "author": {
+    "name": "CodeTruss",
+    "email": "zack@codetruss.com",
+    "url": "https://codetruss.com"
+  },
+  "homepage": "https://codetruss.com/cli",
+  "repository": "https://github.com/DeliriumPulse/codetruss-plugins",
+  "license": "MIT",
+  "keywords": ["coding-agents", "scope-drift", "local-first", "verification", "receipts"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "CodeTruss",
+    "shortDescription": "Prove agent changes stayed inside the task",
+    "longDescription": "Set a task boundary, run deterministic local checks, and produce a verifiable receipt for AI-generated changes.",
+    "developerName": "CodeTruss",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "websiteURL": "https://codetruss.com",
+    "privacyPolicyURL": "https://codetruss.com/privacy",
+    "termsOfServiceURL": "https://codetruss.com/terms",
+    "defaultPrompt": [
+      "Set up CodeTruss for this repository",
+      "Review my current changes against the task",
+      "Verify and explain my latest CodeTruss receipt"
+    ],
+    "brandColor": "#B93A26"
+  }
+}

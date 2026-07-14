@@ -1,0 +1,4 @@
+interface:
+  display_name: "CodeTruss"
+  short_description: "Local acceptance gates for agent changes"
+  default_prompt: "Use $codetruss to review my current agent changes and explain the receipt."
