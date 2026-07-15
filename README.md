@@ -14,7 +14,7 @@ installation, provider-backed `--llm` review, authentication, or receipt
 
 - Git
 - Node.js 20.9 or newer
-- The free CodeTruss CLI from <https://codetruss.com/cli>
+- CodeTruss CLI v0.2.24 or newer from <https://codetruss.com/cli>
 
 The skill can explain the official installer when the CLI is missing, but it
 must not install software without the developer's confirmation.
@@ -40,10 +40,26 @@ codex plugin add codetruss@codetruss
 The owned marketplace is live now. CodeTruss is not currently listed in
 OpenAI's public Plugin Directory.
 
+## Agent Skills clients
+
+Install the same canonical skill for both Claude Code and Codex with the public
+Agent Skills installer:
+
+```bash
+npx --yes skills add DeliriumPulse/codetruss-plugins \
+  --skill codetruss --agent claude-code codex -y
+```
+
+The skill is indexed at
+<https://skills.sh/DeliriumPulse/codetruss-plugins/codetruss>. Review the skill
+before use; it can invoke the separately installed CLI with the agent's local
+permissions.
+
 ## What the skill does
 
 - proposes a narrow repository allow/deny policy and verification commands;
-- runs `codetruss init` only after the developer confirms the boundary;
+- runs guided `codetruss setup` only after the developer confirms the boundary,
+  hook target, and exact verification-command trust;
 - installs and diagnoses the existing Claude Code or Codex lifecycle hook;
 - reviews working-tree or staged changes and interprets the resulting receipt;
 - treats exit codes 1 and 2 as product verdicts with valid evidence, not generic
