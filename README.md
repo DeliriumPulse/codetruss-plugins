@@ -26,10 +26,9 @@ claude plugin marketplace add DeliriumPulse/codetruss-plugins
 claude plugin install codetruss@codetruss
 ```
 
-The owned marketplace is live now. The same validated plugin is prepared for
-Anthropic's reviewed community marketplace but has not been submitted. The
-automatically available official marketplace is separately curated at
-Anthropic's discretion.
+The owned marketplace is live now. CodeTruss is not currently listed in
+Anthropic's reviewed community catalog or its separately curated official
+marketplace.
 
 ## Codex
 
@@ -38,9 +37,8 @@ codex plugin marketplace add DeliriumPulse/codetruss-plugins
 codex plugin add codetruss@codetruss
 ```
 
-The validated skills-only bundle is ready for OpenAI's Plugin Directory. The
-owned marketplace is live now; public-directory submission has not occurred and
-still requires a verified publisher with Apps Management write access.
+The owned marketplace is live now. CodeTruss is not currently listed in
+OpenAI's public Plugin Directory.
 
 ## What the skill does
 
@@ -66,8 +64,8 @@ npm run release:verify
 ```
 
 `npm test` uses only Node.js built-ins and verifies manifests, marketplace
-entries, skill parity, privacy guardrails, and submission-case counts.
-`npm run release:verify` builds the OpenAI and Claude submission archives twice
+entries, skill parity, and privacy guardrails.
+`npm run release:verify` builds the OpenAI and Claude plugin archives twice
 from the committed Git tree and proves their bytes are reproducible.
 
 ## Security and support

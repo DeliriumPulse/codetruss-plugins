@@ -6,7 +6,6 @@
   "license": "MIT",
   "scripts": {
     "test": "node scripts/validate.mjs",
-    "fixtures:verify": "node submission/fixtures/setup.mjs /tmp/codetruss-plugin-fixtures",
     "release:build": "node scripts/build-release.mjs",
     "release:verify": "node scripts/verify-release.mjs"
   },
