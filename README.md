@@ -42,12 +42,12 @@ OpenAI's public Plugin Directory.
 
 ## Agent Skills clients
 
-Install the same canonical skill into a Codex repository with the public
+Install the same canonical skill for both Claude Code and Codex with the public
 Agent Skills installer:
 
 ```bash
 npx --yes skills add DeliriumPulse/codetruss-plugins \
-  --skill codetruss --agent codex -y
+  --skill codetruss --agent claude-code codex -y
 ```
 
 The skill is indexed at

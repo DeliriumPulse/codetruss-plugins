@@ -90,7 +90,7 @@ assert.deepEqual(codexMarketplace.plugins[0].policy, {
 
 const readme = await read('README.md')
 assert.match(readme, /CodeTruss CLI v0\.2\.24 or newer/)
-assert.match(readme, /--skill codetruss --agent codex -y/)
+assert.match(readme, /--skill codetruss --agent claude-code codex -y/)
 assert.doesNotMatch(readme, /official listing remains pending review/)
 assert.match(readme, /not currently listed in\s+Anthropic's reviewed community catalog/)
 assert.match(readme, /not currently listed in\s+OpenAI's public Plugin Directory/)
