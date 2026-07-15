@@ -47,7 +47,8 @@ assert.match(canonicalOpenAi, /default_prompt: "Use \$codetruss /)
 
 const claudeManifest = await json('plugins/codetruss-claude/.claude-plugin/plugin.json')
 const codexManifest = await json('plugins/codetruss/.codex-plugin/plugin.json')
-for (const manifest of [claudeManifest, codexManifest]) {
+const rootManifest = await json('.codex-plugin/plugin.json')
+for (const manifest of [claudeManifest, codexManifest, rootManifest]) {
   assert.equal(manifest.name, 'codetruss')
   assert.match(manifest.version, /^\d+\.\d+\.\d+$/)
   assert.equal(manifest.version, packageManifest.version)
@@ -57,22 +58,91 @@ for (const manifest of [claudeManifest, codexManifest]) {
   assert.equal(manifest.skills, './skills/')
   assert.match(manifest.homepage, /^https:\/\/codetruss\.com\//)
 }
-assert.equal(codexManifest.interface.privacyPolicyURL, 'https://codetruss.com/privacy')
-assert.equal(codexManifest.interface.termsOfServiceURL, 'https://codetruss.com/terms')
-assert.ok(!('mcpServers' in codexManifest), 'local-first wrapper must not add an MCP server')
-assert.ok(!('hooks' in codexManifest), 'plugin must delegate hooks to the tested CLI installer')
-assert.equal(
-  codexManifest.interface.shortDescription,
-  'Local acceptance gate for coding-agent changes',
-)
+for (const manifest of [codexManifest, rootManifest]) {
+  assert.equal(manifest.interface.privacyPolicyURL, 'https://codetruss.com/privacy')
+  assert.equal(manifest.interface.termsOfServiceURL, 'https://codetruss.com/terms')
+  assert.ok(!('mcpServers' in manifest), 'local-first wrapper must not add an MCP server')
+  assert.ok(!('hooks' in manifest), 'plugin must delegate hooks to the tested CLI installer')
+  assert.equal(
+    manifest.interface.shortDescription,
+    'Local acceptance gate for coding-agent changes',
+  )
+}
+for (const field of [
+  'name',
+  'version',
+  'description',
+  'author',
+  'homepage',
+  'repository',
+  'license',
+  'keywords',
+  'skills',
+]) {
+  assert.deepEqual(
+    rootManifest[field],
+    codexManifest[field],
+    `root manifest ${field} must match package`,
+  )
+}
+for (const field of [
+  'displayName',
+  'shortDescription',
+  'longDescription',
+  'developerName',
+  'category',
+  'capabilities',
+  'websiteURL',
+  'privacyPolicyURL',
+  'termsOfServiceURL',
+  'defaultPrompt',
+  'brandColor',
+]) {
+  assert.deepEqual(
+    rootManifest.interface[field],
+    codexManifest.interface[field],
+    `root manifest interface.${field} must match package`,
+  )
+}
 for (const assetField of ['composerIcon', 'logo', 'logoDark']) {
   assert.equal(codexManifest.interface[assetField], './assets/codetruss-mark-512.png')
+  assert.equal(rootManifest.interface[assetField], './assets/icon.svg')
 }
 const brandMark = await readFile(join(root, 'plugins/codetruss/assets/codetruss-mark-512.png'))
 assert.equal(
   createHash('sha256').update(brandMark).digest('hex'),
   '2c46b3aca474ec80918333b6331326ef6f1df6d4a09d48c4f4f9f128dc3d45b8',
 )
+const rootIcon = await read('assets/icon.svg')
+assert.match(rootIcon, /^<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg"/)
+assert.doesNotMatch(rootIcon, /<script|data:image|base64/i)
+assert.ok(Buffer.byteLength(rootIcon) < 50 * 1024, 'root icon must remain under 50KB')
+
+const packageLock = await json('package-lock.json')
+assert.equal(packageLock.lockfileVersion, 3)
+assert.equal(packageLock.version, packageManifest.version)
+assert.equal(packageLock.packages[''].version, packageManifest.version)
+for (const requiredPath of ['.codexignore', 'LICENSE', 'README.md', 'SECURITY.md']) {
+  assert.ok((await read(requiredPath)).trim(), `${requiredPath} must be present and non-empty`)
+}
+
+const holWorkflow = await read('.github/workflows/hol-plugin-scanner.yml')
+assert.match(
+  holWorkflow,
+  /hashgraph-online\/ai-plugin-scanner-action@fa3cb570a8dd5995536a7d4f78f939a960756acc/,
+)
+assert.match(holWorkflow, /min_score: 80/)
+assert.match(holWorkflow, /fail_on_severity: high/)
+for (const workflowPath of [
+  '.github/workflows/hol-plugin-scanner.yml',
+  '.github/workflows/release.yml',
+  '.github/workflows/validate.yml',
+]) {
+  const workflow = await read(workflowPath)
+  for (const [, action, ref] of workflow.matchAll(/^\s*uses:\s*([^@\s]+)@([^\s#]+)/gm)) {
+    assert.match(ref, /^[a-f0-9]{40}$/, `${action} in ${workflowPath} must be SHA-pinned`)
+  }
+}
 
 const claudeMarketplace = await json('.claude-plugin/marketplace.json')
 assert.equal(claudeMarketplace.name, 'codetruss')

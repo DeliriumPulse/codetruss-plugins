@@ -1,3 +1,4 @@
 .DS_Store
+.hol-plugin-scanner-dist/
 node_modules/
 dist/
