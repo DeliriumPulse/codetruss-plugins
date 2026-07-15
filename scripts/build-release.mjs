@@ -10,7 +10,7 @@ const version = packageManifest.version
 const tag = `v${version}`
 const ref = process.env.CODETRUSS_PLUGIN_RELEASE_REF || 'HEAD'
 const dist = join(root, 'dist')
-const commitDate = execFileSync('git', ['show', '-s', '--format=%cI', ref], {
+const commitDate = execFileSync('git', ['show', '-s', '--format=%cI', `${ref}^{commit}`], {
   cwd: root,
   encoding: 'utf8',
 }).trim()
@@ -60,7 +60,11 @@ for (const [target, tree] of packages) {
     `--mtime=${commitDate}`,
     `--output=${output}`,
     `${ref}:${tree}`,
-  ], { cwd: root, stdio: 'inherit' })
+  ], {
+    cwd: root,
+    env: { ...process.env, TZ: 'UTC' },
+    stdio: 'inherit',
+  })
   const digest = createHash('sha256').update(readFileSync(output)).digest('hex')
   writeFileSync(`${output}.sha256`, `${digest}  ${filename}\n`)
 }

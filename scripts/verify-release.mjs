@@ -9,9 +9,10 @@ import { setTimeout } from 'node:timers/promises'
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = join(root, 'dist')
 
-function buildAndHash() {
+function buildAndHash(timeZone) {
   execFileSync(process.execPath, [join(root, 'scripts/build-release.mjs')], {
     cwd: root,
+    env: { ...process.env, TZ: timeZone },
     stdio: 'inherit',
   })
   return Object.fromEntries(
@@ -22,10 +23,10 @@ function buildAndHash() {
   )
 }
 
-const first = buildAndHash()
+const first = buildAndHash('Pacific/Honolulu')
 await setTimeout(1_100)
-const second = buildAndHash()
-assert.deepEqual(second, first, 'release archives changed across identical builds')
+const second = buildAndHash('Asia/Tokyo')
+assert.deepEqual(second, first, 'release archives changed across timezones')
 assert.equal(Object.keys(first).filter((name) => name.endsWith('.zip')).length, 2)
 assert.equal(Object.keys(first).filter((name) => name.endsWith('.sha256')).length, 2)
 
