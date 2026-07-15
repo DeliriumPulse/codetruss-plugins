@@ -19,13 +19,20 @@ assert.match(canonicalSkill, /^---\nname: codetruss\ndescription: .{80,1024}\n--
 
 for (const required of [
   'obtain explicit consent before downloading or installing software',
+  'This skill targets v0.2.24 or newer.',
+  'use `codetruss setup` as the single guided setup path',
+  '`codetruss verify-policy status` and require exit 0 with the same fingerprint',
+  'An existing `.codetruss.yml` remains authoritative',
   'Do not run `--llm`, `codetruss auth login`, or `codetruss sync` unless',
   'Do not broaden `allow`, remove `deny`, add `--no-verify`',
-  'exit `1` as `REVIEW_REQUIRED`',
+  'For `codetruss run` and `codetruss review`, treat exit `0` as `PASS`',
   'post-generation integrity evidence',
 ]) {
   assert.ok(canonicalSkill.includes(required), `missing trust-boundary rule: ${required}`)
 }
+assert.match(canonicalSkill, /exit `1`\s+as `REVIEW_REQUIRED`/)
+assert.match(canonicalSkill, /exit `2` as `FAILED`/)
+assert.match(canonicalSkill, /Never uninstall another hook\s+without an explicit removal request/)
 
 const canonicalOpenAi = await read('skills/codetruss/agents/openai.yaml')
 assert.equal(
@@ -82,8 +89,19 @@ assert.deepEqual(codexMarketplace.plugins[0].policy, {
 })
 
 const readme = await read('README.md')
+assert.match(readme, /CodeTruss CLI v0\.2\.24 or newer/)
+assert.match(readme, /--skill codetruss --agent codex -y/)
 assert.doesNotMatch(readme, /official listing remains pending review/)
 assert.match(readme, /not currently listed in\s+Anthropic's reviewed community catalog/)
 assert.match(readme, /not currently listed in\s+OpenAI's public Plugin Directory/)
+
+for (const path of [
+  'plugins/codetruss/README.md',
+  'plugins/codetruss-claude/README.md',
+]) {
+  const pluginReadme = await read(path)
+  assert.match(pluginReadme, /CodeTruss CLI v0\.2\.24 or newer/)
+  assert.match(pluginReadme, /Run `codetruss setup` for the guided local policy/)
+}
 
 process.stdout.write('CodeTruss Claude, Codex, and Agent Skills packages validated.\n')

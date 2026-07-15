@@ -1,6 +1,6 @@
 {
   "name": "codetruss-agent-plugins",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "description": "Open Claude Code, Codex, and Agent Skills wrappers for the CodeTruss CLI",
   "license": "MIT",
