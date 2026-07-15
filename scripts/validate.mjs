@@ -43,7 +43,11 @@ assert.equal(
   await read('plugins/codetruss/skills/codetruss/agents/openai.yaml'),
   canonicalOpenAi,
 )
-assert.match(canonicalOpenAi, /default_prompt: "Use \$codetruss /)
+assert.match(
+  canonicalOpenAi,
+  /default_prompt: "Review my current agent changes with CodeTruss and explain the receipt\."/,
+)
+assert.doesNotMatch(canonicalOpenAi, /\$codetruss\b/)
 
 const claudeManifest = await json('plugins/codetruss-claude/.claude-plugin/plugin.json')
 const codexManifest = await json('plugins/codetruss/.codex-plugin/plugin.json')
@@ -148,6 +152,7 @@ const claudeMarketplace = await json('.claude-plugin/marketplace.json')
 assert.equal(claudeMarketplace.name, 'codetruss')
 assert.equal(claudeMarketplace.plugins[0].source, './plugins/codetruss-claude')
 assert.equal(claudeMarketplace.version, packageManifest.version)
+assert.equal(claudeMarketplace.metadata?.description, claudeMarketplace.description)
 assert.ok(!('version' in claudeMarketplace.plugins[0]))
 const codexMarketplace = await json('.agents/plugins/marketplace.json')
 assert.equal(codexMarketplace.name, 'codetruss')
@@ -161,6 +166,7 @@ assert.deepEqual(codexMarketplace.plugins[0].policy, {
 const readme = await read('README.md')
 assert.match(readme, /CodeTruss CLI v0\.2\.24 or newer/)
 assert.match(readme, /--skill codetruss --agent claude-code codex -y/)
+assert.match(readme, /codetruss-plugins\/tree\/v0\.1\.5/)
 assert.doesNotMatch(readme, /official listing remains pending review/)
 assert.match(readme, /not currently listed in\s+Anthropic's reviewed community catalog/)
 assert.match(readme, /not currently listed in\s+OpenAI's public Plugin Directory/)

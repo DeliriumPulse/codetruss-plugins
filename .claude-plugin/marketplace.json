@@ -2,7 +2,10 @@
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "codetruss",
   "description": "Verify the acceptance contract for coding-agent changes locally",
-  "version": "0.1.4",
+  "version": "0.1.5",
+  "metadata": {
+    "description": "Verify the acceptance contract for coding-agent changes locally"
+  },
   "owner": {
     "name": "CodeTruss",
     "email": "zack@codetruss.com"

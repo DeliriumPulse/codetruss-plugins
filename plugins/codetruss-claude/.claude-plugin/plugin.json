@@ -1,6 +1,6 @@
 {
   "name": "codetruss",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Verify coding-agent changes locally with the separately installed free CodeTruss CLI.",
   "author": {
     "name": "CodeTruss",
