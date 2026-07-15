@@ -50,6 +50,14 @@ npx --yes skills add DeliriumPulse/codetruss-plugins \
   --skill codetruss --agent claude-code codex -y
 ```
 
+For an immutable install, pin the current reviewed release:
+
+```bash
+npx --yes skills add \
+  https://github.com/DeliriumPulse/codetruss-plugins/tree/v0.1.5 \
+  --skill codetruss --agent claude-code codex -y
+```
+
 The skill is indexed at
 <https://skills.sh/DeliriumPulse/codetruss-plugins/codetruss>. Review the skill
 before use; it can invoke the separately installed CLI with the agent's local
