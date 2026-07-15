@@ -1,6 +1,6 @@
 {
   "name": "codetruss",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Verify the acceptance contract for coding-agent changes locally.",
   "author": {
     "name": "CodeTruss",
