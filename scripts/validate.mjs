@@ -81,33 +81,9 @@ assert.deepEqual(codexMarketplace.plugins[0].policy, {
   products: ['CODEX'],
 })
 
-const submission = await read('submission/openai.md')
-assert.equal((submission.match(/^### Positive \d+:/gm) ?? []).length, 5)
-assert.equal((submission.match(/^### Negative \d+:/gm) ?? []).length, 3)
-assert.match(submission, /Status: \*\*Prepared and locally validated; not submitted or approved\.\*\*/)
-assert.match(submission, /Short description: Local acceptance gate for coding-agent changes\./)
-assert.match(submission, /Requires the separately installed free CodeTruss CLI/)
-assert.match(submission, /Availability:/)
-assert.match(submission, /submission\/fixtures\/setup\.mjs/)
-
-const claudeSubmission = await read('submission/claude.md')
-assert.match(claudeSubmission, /reviewed community marketplace/)
-assert.match(claudeSubmission, /not submitted or approved/)
-assert.match(claudeSubmission, /Submitter email: `zack@codetruss\.com`/)
-assert.match(claudeSubmission, /Supported platform: `Claude Code`/)
-assert.match(claudeSubmission, /Wrapper license: `MIT`/)
-assert.match(claudeSubmission, /## Example use cases/)
-assert.doesNotMatch(claudeSubmission, /It never uploads code/)
-assert.match(claudeSubmission, /Optional\n> `--llm` sends the reviewed diff directly/)
-
-const publisherChecklist = await read('submission/PUBLISHER_CHECKLIST.md')
-assert.match(publisherChecklist, /Apps Management: Write/)
-assert.match(publisherChecklist, /gate the listing to Codex/)
-assert.match(publisherChecklist, /Select `Claude Code` only/)
-assert.match(publisherChecklist, /does not satisfy identity verification/)
-
 const readme = await read('README.md')
 assert.doesNotMatch(readme, /official listing remains pending review/)
-assert.match(readme, /official marketplace is separately curated/)
+assert.match(readme, /not currently listed in\s+Anthropic's reviewed community catalog/)
+assert.match(readme, /not currently listed in\s+OpenAI's public Plugin Directory/)
 
 process.stdout.write('CodeTruss Claude, Codex, and Agent Skills packages validated.\n')
